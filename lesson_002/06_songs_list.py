@@ -41,9 +41,10 @@ violator_songs_dict = {
 # Распечатайте общее время звучания трех песен: 'Sweetest Perfection', 'Policy of Truth' и 'Blue Dress'
 #   А другие три песни звучат приблизительно ХХХ минут
 
-another_three_songs = violator_songs_dict['Sweetest Perfection'] + violator_songs_dict['Policy of Truth'] + violator_songs_dict['Blue Dress']
+another_three_songs = violator_songs_dict['Sweetest Perfection'] + violator_songs_dict['Policy of Truth'] + \
+                      violator_songs_dict['Blue Dress']
 another_three_songs = round(another_three_songs, 2)
-print('А другие 3 песни звучат приблизительно', another_three_songs )
+print('А другие 3 песни звучат приблизительно', another_three_songs)
 
 # Обратите внимание, что делать много вычислений внутри print() - плохой стиль.
 # Лучше заранее вычислить необходимое, а затем в print(xxx, yyy, zzz)

@@ -38,3 +38,5 @@ str3 = secret_message[2][5:15:2]
 str4 = secret_message[3][12:6:-1]
 str5 = secret_message[4][20:15:-1]
 print(str1.upper(), str2, str3, str4, str5 + '!')
+
+# Зачёт!

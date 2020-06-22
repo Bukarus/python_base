@@ -49,3 +49,5 @@ print(distance2 <= radius, ',так как расстояние', distance2)
 # 77777.7777
 # False
 # False
+
+# Зачёт!

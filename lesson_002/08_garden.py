@@ -23,3 +23,5 @@ print('пересечение 2 множеств:', garden_set & meadow_set)
 print('нет на лугу', garden_set - meadow_set)
 # выведите на консоль те, которые растут на лугу, но не растут в саду
 print('нет в саду:', meadow_set - garden_set)
+
+# Зачёт!

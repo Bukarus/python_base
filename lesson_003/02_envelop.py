@@ -21,7 +21,6 @@ paper_x, paper_y = 8, 9
 # paper_x, paper_y = 9, 11
 # (просто раскоментировать нужную строку и проверить свой код)
 
-# TODO здесь ваш код
 if envelop_x >= paper_x and envelop_y >=paper_y:
     print('ДА!')
 elif envelop_x >= paper_y and envelop_y >=paper_x:
@@ -56,7 +55,6 @@ brick_x, brick_y, brick_z = 3, 5, 6
 # brick_x, brick_y, brick_z = 3, 11, 6
 # (просто раскоментировать нужную строку и проверить свой код)
 
-# TODO здесь ваш код
 if hole_x >= brick_x and (hole_y >= brick_y or hole_y >= brick_z):
     print('ДА!')
 elif hole_x >= brick_y and (hole_y >= brick_x or hole_y >= brick_z):

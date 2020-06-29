@@ -11,4 +11,12 @@
 
 a, b = 179, 37
 
-# TODO здесь ваш код
+int_divisor = 0
+multiplication = 0
+while multiplication <= a:
+    int_divisor += 1
+    multiplication = b * int_divisor
+
+# учитываем выход из цикла с произведением большим заданного числа a
+int_divisor -= 1
+print('Целочисленное деление {} на {} дает {}'.format(a, b, int_divisor))

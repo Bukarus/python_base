@@ -8,7 +8,36 @@
 
 # Номер месяца получать от пользователя следующим образом
 user_input = input("Введите, пожалуйста, номер месяца: ")
-month = int(user_input)
-print('Вы ввели', month)
+while (user_input != 'exit'):
+    month = int(user_input)
+    print('Вы ввели', month)
 
+    if month == 1:
+        print('В этом месяце', 31, 'день!')
+    elif month == 2:
+        print('В этом месяце', 28, 'день!')
+    elif month == 3:
+        print('В этом месяце', 31, 'день!')
+    elif month == 4:
+        print('В этом месяце', 30, 'день!')
+    elif month == 5:
+        print('В этом месяце', 31, 'день!')
+    elif month == 6:
+        print('В этом месяце', 30, 'день!')
+    elif month == 7:
+        print('В этом месяце', 31, 'день!')
+    elif month == 8:
+        print('В этом месяце', 31, 'день!')
+    elif month == 9:
+        print('В этом месяце', 30, 'день!')
+    elif month == 10:
+        print('В этом месяце', 31, 'день!')
+    elif month == 11:
+        print('В этом месяце', 30, 'день!')
+    elif month == 12:
+        1
+    print('В этом месяце', 31, 'день!')
+else:
+    print('Такого месяца не существует!')
+user_input = input("Введите, пожалуйста, номер месяца: ")
 # TODO здесь ваш код

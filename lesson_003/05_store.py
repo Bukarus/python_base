@@ -60,6 +60,8 @@ for one_good, good_code in goods.items():
     store_items = store[good_code]
     quantity_goods = 0
     cost_goods = 0
+    # TODO Можно сделать цикл по store[product_code] не создавая
+    #  дополнительных переменны
     for one_store_item in store_items:
         quantity_goods += one_store_item['quantity']
         cost_goods += one_store_item['quantity'] * one_store_item['price']

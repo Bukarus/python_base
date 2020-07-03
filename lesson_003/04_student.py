@@ -21,7 +21,6 @@ while month_counter < month_number:
     expenses *= coefficient
     total_expenses += expenses
     month_counter += 1
-    print(month_counter, expenses, total_expenses, month_counter * educational_grant)
 
 parents_help = round(total_expenses - educational_grant * month_number, 2)
 

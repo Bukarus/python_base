@@ -21,9 +21,9 @@ paper_x, paper_y = 8, 9
 # paper_x, paper_y = 9, 11
 # (просто раскоментировать нужную строку и проверить свой код)
 
-if envelop_x >= paper_x and envelop_y >=paper_y:
+if envelop_x >= paper_x and envelop_y >= paper_y:
     print('ДА!')
-elif envelop_x >= paper_y and envelop_y >=paper_x:
+elif envelop_x >= paper_y and envelop_y >= paper_x:
     print('ДА!')
 else:
     print('НЕТ!')

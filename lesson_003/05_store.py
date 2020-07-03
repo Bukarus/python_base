@@ -57,10 +57,9 @@ store = {
 result_string = ''
 
 for one_good, good_code in goods.items():
-    store_items = store[good_code]
     quantity_goods = 0
     cost_goods = 0
-    for one_store_item in store_items:
+    for one_store_item in store[good_code]:
         quantity_goods += one_store_item['quantity']
         cost_goods += one_store_item['quantity'] * one_store_item['price']
     # one_good - название продукта

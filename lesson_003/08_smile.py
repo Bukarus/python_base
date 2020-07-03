@@ -3,12 +3,13 @@
 # (определение функций)
 import simple_draw
 
+
 # Написать функцию отрисовки смайлика по заданным координатам
 # Форма рожицы-смайлика на ваше усмотрение
 # Параметры функции: кордината X, координата Y, цвет.
 # Вывести 10 смайликов в произвольных точках экрана.
 
-def smile(x_coord = 300, y_coord = 300, color=simple_draw.COLOR_ORANGE):
+def smile(x_coord=300, y_coord=300, color=simple_draw.COLOR_ORANGE):
     length_x = 150
     length_y = 100
     left_bottom = simple_draw.get_point(x_coord, y_coord)
@@ -28,8 +29,8 @@ def smile(x_coord = 300, y_coord = 300, color=simple_draw.COLOR_ORANGE):
 
 for _ in range(10):
     point = simple_draw.random_point()
-    x_coord = point.x
-    y_coord = point.y
-    smile(x_coord=x_coord, y_coord=y_coord)
+    x_coord_range = point.x
+    y_coord_range = point.y
+    smile(x_coord=x_coord_range, y_coord=y_coord_range)
 
 simple_draw.pause()

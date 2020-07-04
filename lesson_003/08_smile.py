@@ -34,3 +34,5 @@ for _ in range(10):
     smile(x_coord=x_coord_range, y_coord=y_coord_range)
 
 simple_draw.pause()
+
+# Зачёт!

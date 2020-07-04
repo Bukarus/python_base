@@ -70,3 +70,5 @@ for one_good, good_code in goods.items():
     result_string += '{0} - {1} шт, стоимость {2} руб \n'.format(one_good, quantity_goods, cost_goods)
 
 print(result_string)
+
+# Зачёт!

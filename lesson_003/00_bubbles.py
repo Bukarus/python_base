@@ -50,3 +50,5 @@ for _ in range(100):
     bubble(center_position=point, color_of_circle=color, radius_of_circle=radius, step_to_next=step)
 
 sd.pause()
+
+# Зачёт!

@@ -25,3 +25,5 @@ while month_counter < month_number:
 parents_help = round(total_expenses - educational_grant * month_number, 2)
 
 print('Студенту необходимо попросить у родителей', parents_help, 'руб.')
+
+# Зачёт!

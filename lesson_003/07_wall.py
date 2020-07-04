@@ -30,3 +30,5 @@ for y in range(0, 600, 50):
         right_top = sd.get_point(x + length_x - 1, y + length_y - 1)
         sd.rectangle(left_bottom=left_bottom, right_top=right_top, color=sd.random_color(), width=0)
 sd.pause()
+
+# Зачёт!

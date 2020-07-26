@@ -26,7 +26,6 @@ import simple_draw as sd
 
 # можно поиграть -шрифтами- цветами и углами отклонения
 
-# TODO здесь ваш код
 sd.resolution = (1200, 600)
 start_point = sd.get_point(300, 30)
 start_angle = 90

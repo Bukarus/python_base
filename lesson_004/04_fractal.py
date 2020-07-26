@@ -27,7 +27,27 @@ import simple_draw as sd
 # можно поиграть -шрифтами- цветами и углами отклонения
 
 # TODO здесь ваш код
+sd.resolution = (1200, 600)
+start_point = sd.get_point(300, 30)
+start_angle = 90
+start_length = 100.
+const_delta = 30
 
+
+def draw_branches(point=start_point, angle=start_angle, length=start_length, delta=const_delta):
+    if length < 10:
+        return
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length)
+    v1.draw()
+    next_point = v1.end_point
+    next_angle1 = angle - delta
+    next_angle2 = angle + delta
+    next_length = length * .75
+    draw_branches(point=next_point, angle=next_angle1, length=next_length)
+    draw_branches(point=next_point, angle=next_angle2, length=next_length)
+
+
+draw_branches()
 # 4) Усложненное задание (делать по желанию)
 # - сделать рандомное отклонение угла ветвей в пределах 40% от 30-ти градусов
 # - сделать рандомное отклонение длины ветвей в пределах 20% от коэффициента 0.75
@@ -35,7 +55,25 @@ import simple_draw as sd
 
 # Пригодятся функции
 # sd.random_number()
+root_point = sd.get_point(900, 30)
+
+
+def draw_random_branches(point=root_point, angle=start_angle, length=start_length, delta=const_delta):
+    if length < 5:
+        return
+    v1 = sd.get_vector(start_point=point, angle=angle, length=length)
+    v1.draw()
+    dynamic_delta = sd.random_number(int(delta - .4 * delta), int(delta + .4 * delta))
+    next_point = v1.end_point
+    next_angle1 = angle - dynamic_delta
+    next_angle2 = angle + dynamic_delta
+    next_length = (length * .75)
+    next_length = sd.random_number(int(next_length - .2 * next_length), int(next_length + .2 * next_length))
+    draw_random_branches(point=next_point, angle=next_angle1, length=next_length)
+    draw_random_branches(point=next_point, angle=next_angle2, length=next_length)
+
+
+draw_random_branches()
+
 
 sd.pause()
-
-

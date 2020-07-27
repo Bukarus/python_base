@@ -2,6 +2,7 @@
 
 import simple_draw as sd
 
+sd.resolution = (1200, 600)
 
 # На основе кода из практической части реализовать снегопад:
 # - создать списки данных для отрисовки N снежинок
@@ -17,13 +18,44 @@ N = 20
 # sd.random_number()
 # sd.user_want_exit()
 
+list_of_coords = []
+list_of_length = []
+factor_a_list = []
+factor_b_list = []
+factor_c_list = []
+
+for i in range(N):
+    list_of_coords.append([sd.random_number(i * 60, (i + 1) * 60 - 20), 700])
+    list_of_length.append(sd.random_number(10, 30))
+    factor_a_list.append(sd.random_number(1, 8)/10)
+    factor_b_list.append(sd.random_number(1, 8)/10)
+    factor_c_list.append(sd.random_number(30, 60))
+
+
+flag_of_stop = False
 
 while True:
     sd.clear_screen()
-    # TODO здесь ваш код
+    for i, coord in enumerate(list_of_coords):
+        point = sd.get_point(coord[0], coord[1])
+        sd.snowflake(center=point, length=list_of_length[i], factor_a=factor_a_list[i], factor_b=factor_b_list[i],
+                     factor_c=factor_c_list[i])
+        coord[1] -= 10
+        coord[0] += 5
+        if coord[1] < 10:
+            flag_of_stop = True
+            break
+    if flag_of_stop:
+        for i, coord in enumerate(list_of_coords):
+            point = sd.get_point(coord[0], coord[1])
+            sd.snowflake(center=point, length=list_of_length[i], factor_a=factor_a_list[i], factor_b=factor_b_list[i],
+                         factor_c=factor_c_list[i])
+        break
     sd.sleep(0.1)
     if sd.user_want_exit():
         break
+
+
 sd.pause()
 
 # Примерный алгоритм отрисовки снежинок
@@ -72,4 +104,3 @@ sd.pause()
 # - сделать сугоб внизу экрана - если снежинка долетает до низа, оставлять её там,
 #   и добавлять новую снежинку
 # Результат решения см https://youtu.be/XBx0JtxHiLg
-

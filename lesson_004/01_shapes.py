@@ -44,69 +44,44 @@ length_initial = 100
 angle_initial = 60
 
 
-# TODO Вы рисуете вектора одинаковым способом.
-#  Для перехода к общей функции сделайте рисование векторов в цикле.
-# TODO Угол в 120 градусов для треугольников, 90 для квадратов, и т. д.
-#  можно вычислить. Сделайте такое вычисление перед циклом.
 def triangle(point=point_initial_triangle, angle=angle_initial, length=length_initial):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw()
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 120, length=length, width=3)
-    v2.draw()
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 240, length=length, width=3)
-    v3.draw()
+    number_of_angles = 3
+    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+    end_point = point
+    for i in range(number_of_angles):
+        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+        end_point = v.end_point
+        v.draw()
 
 
 def square(point=point_initial_square, angle=angle_initial, length=length_initial):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw()
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 90, length=length, width=3)
-    v2.draw()
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 180, length=length, width=3)
-    v3.draw()
-
-    sd.line(start_point=v3.end_point, end_point=v1.start_point, width=3)
+    number_of_angles = 4
+    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+    end_point = point
+    for i in range(number_of_angles):
+        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+        end_point = v.end_point
+        v.draw()
 
 
 def pentagon(point=point_initial_pentagon, angle=angle_initial, length=length_initial):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw()
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 72, length=length, width=3)
-    v2.draw()
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 144, length=length, width=3)
-    v3.draw()
-
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 216, length=length, width=3)
-    v4.draw()
-
-    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 288, length=length, width=3)
-    v5.draw()
+    number_of_angles = 5
+    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+    end_point = point
+    for i in range(number_of_angles):
+        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+        end_point = v.end_point
+        v.draw()
 
 
 def hexagon(point=point_initial_hexagon, angle=angle_initial, length=length_initial):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
-    v1.draw()
-
-    v2 = sd.get_vector(start_point=v1.end_point, angle=angle + 60, length=length, width=3)
-    v2.draw()
-
-    v3 = sd.get_vector(start_point=v2.end_point, angle=angle + 120, length=length, width=3)
-    v3.draw()
-
-    v4 = sd.get_vector(start_point=v3.end_point, angle=angle + 180, length=length, width=3)
-    v4.draw()
-
-    v5 = sd.get_vector(start_point=v4.end_point, angle=angle + 240, length=length, width=3)
-    v5.draw()
-
-    v6 = sd.get_vector(start_point=v5.end_point, angle=angle + 300, length=length, width=3)
-    v6.draw()
+    number_of_angles = 6
+    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+    end_point = point
+    for i in range(number_of_angles):
+        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+        end_point = v.end_point
+        v.draw()
 
 
 triangle()

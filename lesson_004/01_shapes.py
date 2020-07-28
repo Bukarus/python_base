@@ -44,6 +44,10 @@ length_initial = 100
 angle_initial = 60
 
 
+# TODO Вы рисуете вектора одинаковым способом.
+#  Для перехода к общей функции сделайте рисование векторов в цикле.
+# TODO Угол в 120 градусов для треугольников, 90 для квадратов, и т. д.
+#  можно вычислить. Сделайте такое вычисление перед циклом.
 def triangle(point=point_initial_triangle, angle=angle_initial, length=length_initial):
     v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
     v1.draw()

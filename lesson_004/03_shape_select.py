@@ -38,6 +38,7 @@ angle_initial = 60
 user_color = COLOR_YELLOW
 
 
+# TODO Нужно разместить функции над остальным кодом.
 def triangle(point=point_initial_triangle, angle=angle_initial, length=length_initial, color=user_color):
     v1 = sd.get_vector(start_point=point, angle=angle, length=length, width=3)
     v1.draw(color=color)

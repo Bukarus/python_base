@@ -76,3 +76,5 @@ draw_random_branches()
 
 
 sd.pause()
+
+# Зачёт!

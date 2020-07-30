@@ -9,7 +9,7 @@ sd.resolution = (1200, 600)
 # - нарисовать падение этих N снежинок
 # - создать список рандомных длин лучей снежинок (от 10 до 100) и пусть все снежинки будут разные
 
-N = 20
+N = 100
 
 # Пригодятся функции
 # sd.get_point()
@@ -18,66 +18,18 @@ N = 20
 # sd.random_number()
 # sd.user_want_exit()
 
-# TODO Удобнее хранить координаты и параметры снежинок в одной структуре данных.
-#  Так работать с ними будет проще:
-#  список со списками:
-#  snowflakes = [[0, 2, 4], [5, 6, 7], ...]
-#  for x, y, length in snowflakes:
-#      point = Point(x, y)
-#      snowflake(point, length)
-#  или список со словарями:
-#  snowflakes = [{"x": 0, "y": 2, "length": 4}, {"x": 5, "y": 6, "length": 7}, ]
-#  for snowflake in snowflakes:
-#      point = Point(snowflake['x'], snowflake['y'])
-#      snowflake(point, snowflake["length"])
-#  или словарь со словарями:
-#  snowflakes = {1: {"x": 0, "y": 2, "length": 4}, {"x": 5, "y": 6, "length": 7}, }
-#  for i, snowflake in snowflakes.items():
-#      point = Point(snowflake['x'], snowflake['y'])
-#      snowflake(point, snowflake["length"])
-#  Или с использованием enumerate, если нужен индекс элемента в списке:
-#  for i, (x, y, length) in enumerate(snowflake_param):
-#  Пример для словаря, содержащего список параметров снежинки:
-#  for i, (x, y, length) in snowflake_param.items():
-list_of_coords = []
-list_of_length = []
-factor_a_list = []
-factor_b_list = []
-factor_c_list = []
-
+snowflakes = {}
 for i in range(N):
-    list_of_coords.append([sd.random_number(i * 60, (i + 1) * 60 - 20), 700])
-    list_of_length.append(sd.random_number(10, 30))
-    factor_a_list.append(sd.random_number(1, 8)/10)
-    factor_b_list.append(sd.random_number(1, 8)/10)
-    factor_c_list.append(sd.random_number(30, 60))
-
+    snowflakes[i] = {}
+    snowflakes[i]['x'] = sd.random_number(i * 12, (i + 1) * 12 - 12)
+    snowflakes[i]['y'] = 700
+    snowflakes[i]['length'] = sd.random_number(5, 15)
+    snowflakes[i]['factor_a'] = sd.random_number(1, 8)/10
+    snowflakes[i]['factor_b'] = sd.random_number(1, 8)/10
+    snowflakes[i]['factor_c'] = sd.random_number(30, 60)
+    snowflakes[i]['speed'] = sd.random_number(5, 20)
 
 flag_of_stop = False
-
-while True:
-    sd.clear_screen()
-    for i, coord in enumerate(list_of_coords):
-        point = sd.get_point(coord[0], coord[1])
-        sd.snowflake(center=point, length=list_of_length[i], factor_a=factor_a_list[i], factor_b=factor_b_list[i],
-                     factor_c=factor_c_list[i])
-        coord[1] -= 10
-        coord[0] += 5
-        if coord[1] < 10:
-            flag_of_stop = True
-            break
-    if flag_of_stop:
-        for i, coord in enumerate(list_of_coords):
-            point = sd.get_point(coord[0], coord[1])
-            sd.snowflake(center=point, length=list_of_length[i], factor_a=factor_a_list[i], factor_b=factor_b_list[i],
-                         factor_c=factor_c_list[i])
-        break
-    sd.sleep(0.1)
-    if sd.user_want_exit():
-        break
-
-
-sd.pause()
 
 # Примерный алгоритм отрисовки снежинок
 #   навсегда
@@ -91,7 +43,6 @@ sd.pause()
 #     если пользователь хочет выйти
 #       прервать цикл
 
-# TODO Переходите ко второй части задания.
 # Часть 2 (делается после зачета первой части)
 #
 # Ускорить отрисовку снегопада
@@ -118,7 +69,30 @@ sd.pause()
 #     немного поспать
 #     если пользователь хочет выйти
 #       прервать цикл
+x, y, length, factor_a, factor_b, factor_c = 0, 0, 0, 0, 0, 0
+while True:
+    sd.start_drawing()
+    for i, snowflake_item in snowflakes.items():
+        point = sd.get_point(snowflake_item['x'], snowflake_item['y'])
+        sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
+                     factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'],
+                     color=sd.background_color)
+        snowflake_item['y'] -= snowflake_item['speed']
+        snowflake_item['x'] += sd.random_number(-15, 15)
+        point = sd.get_point(snowflake_item['x'], snowflake_item['y'])
+        sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
+                     factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'])
+        if snowflake_item['y'] < 10:
+            sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
+                         factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'])
+            snowflake_item['y'] = 700
+    sd.finish_drawing()
+    sd.sleep(0.1)
+    if sd.user_want_exit():
+        break
 
+
+sd.pause()
 
 # Усложненное задание (делать по желанию)
 # - сделать рандомные отклонения вправо/влево при каждом шаге

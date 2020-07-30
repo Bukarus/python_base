@@ -87,3 +87,5 @@ while user_color in color_names:
     user_color = input("Введите, пожалуйста, желаемый цвет: ")
 else:
     print("Вы ввели некорректный номер!")
+
+# Зачёт!

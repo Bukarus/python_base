@@ -69,7 +69,6 @@ flag_of_stop = False
 #     немного поспать
 #     если пользователь хочет выйти
 #       прервать цикл
-x, y, length, factor_a, factor_b, factor_c = 0, 0, 0, 0, 0, 0
 while True:
     sd.start_drawing()
     for i, snowflake_item in snowflakes.items():

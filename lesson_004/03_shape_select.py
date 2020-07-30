@@ -81,3 +81,5 @@ while user_figure in figures:
 else:
     print("Вы ввели некорректный номер!")
 # sd.pause()
+
+# Зачёт!

@@ -36,58 +36,50 @@ import simple_draw as sd
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-point_initial_triangle = sd.get_point(100, 300)
-point_initial_square = sd.get_point(300, 150)
-point_initial_pentagon = sd.get_point(500, 300)
-point_initial_hexagon = sd.get_point(150, 400)
-length_initial = 100
-angle_initial = 60
-
-
-def triangle(point=point_initial_triangle, angle=angle_initial, length=length_initial):
-    number_of_angles = 3
-    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-    end_point = point
-    for i in range(number_of_angles):
-        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-        end_point = v.end_point
-        v.draw()
-
-
-def square(point=point_initial_square, angle=angle_initial, length=length_initial):
-    number_of_angles = 4
-    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-    end_point = point
-    for i in range(number_of_angles):
-        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-        end_point = v.end_point
-        v.draw()
-
-
-def pentagon(point=point_initial_pentagon, angle=angle_initial, length=length_initial):
-    number_of_angles = 5
-    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-    end_point = point
-    for i in range(number_of_angles):
-        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-        end_point = v.end_point
-        v.draw()
-
-
-def hexagon(point=point_initial_hexagon, angle=angle_initial, length=length_initial):
-    number_of_angles = 6
-    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-    end_point = point
-    for i in range(number_of_angles):
-        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-        end_point = v.end_point
-        v.draw()
-
-
-triangle()
-square()
-pentagon()
-hexagon()
+# def triangle(point=point_initial_triangle, angle=angle_initial, length=length_initial):
+#     number_of_angles = 3
+#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+#     end_point = point
+#     for i in range(number_of_angles):
+#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+#         end_point = v.end_point
+#         v.draw()
+#
+#
+# def square(point=point_initial_square, angle=angle_initial, length=length_initial):
+#     number_of_angles = 4
+#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+#     end_point = point
+#     for i in range(number_of_angles):
+#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+#         end_point = v.end_point
+#         v.draw()
+#
+#
+# def pentagon(point=point_initial_pentagon, angle=angle_initial, length=length_initial):
+#     number_of_angles = 5
+#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+#     end_point = point
+#     for i in range(number_of_angles):
+#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+#         end_point = v.end_point
+#         v.draw()
+#
+#
+# def hexagon(point=point_initial_hexagon, angle=angle_initial, length=length_initial):
+#     number_of_angles = 6
+#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+#     end_point = point
+#     for i in range(number_of_angles):
+#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+#         end_point = v.end_point
+#         v.draw()
+#
+#
+# triangle()
+# square()
+# pentagon()
+# hexagon()
 
 
 # Часть 1-бис.
@@ -95,7 +87,6 @@ hexagon()
 # Скажем, связывать точки не линиями, а дугами. Или двойными линиями. Или рисовать круги в угловых точках. Или...
 # А если таких функций не 4, а 44? Код писать не нужно, просто представь объем работы... и запомни это.
 
-# TODO Переходите ко второй части задания.
 # Часть 2 (делается после зачета первой части)
 #
 # Надо сформировать функцию, параметризированную в местах где была "небольшая правка".
@@ -113,6 +104,29 @@ hexagon()
 # А теперь - сколько надо работы что бы внести изменения в код? Выгода на лицо :)
 # Поэтому среди программистов есть принцип D.R.Y. https://clck.ru/GEsA9
 # Будьте ленивыми, не используйте копи-пасту!
+point_initial_triangle = sd.get_point(100, 300)
+point_initial_square = sd.get_point(300, 150)
+point_initial_pentagon = sd.get_point(500, 300)
+point_initial_hexagon = sd.get_point(150, 400)
+length_initial = 100
+angle_initial = 60
+point_initial_n_angle = sd.get_point(300, 300)
+
+
+def n_angle_figure(number_of_angles, point=point_initial_n_angle, angle=angle_initial, length=length_initial):
+    angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
+    end_point = point
+    for i in range(number_of_angles-1):
+        v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
+        end_point = v.end_point
+        v.draw()
+    sd.line(start_point=point, end_point=end_point, width=3)
+
+
+n_angle_figure(3, point=point_initial_triangle)
+n_angle_figure(4, point=point_initial_square)
+n_angle_figure(5, point=point_initial_pentagon)
+n_angle_figure(6, point=point_initial_hexagon)
 
 
 sd.pause()

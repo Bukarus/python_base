@@ -36,46 +36,6 @@ import simple_draw as sd
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-# def triangle(point=point_initial_triangle, angle=angle_initial, length=length_initial):
-#     number_of_angles = 3
-#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-#     end_point = point
-#     for i in range(number_of_angles):
-#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-#         end_point = v.end_point
-#         v.draw()
-#
-#
-# def square(point=point_initial_square, angle=angle_initial, length=length_initial):
-#     number_of_angles = 4
-#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-#     end_point = point
-#     for i in range(number_of_angles):
-#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-#         end_point = v.end_point
-#         v.draw()
-#
-#
-# def pentagon(point=point_initial_pentagon, angle=angle_initial, length=length_initial):
-#     number_of_angles = 5
-#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-#     end_point = point
-#     for i in range(number_of_angles):
-#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-#         end_point = v.end_point
-#         v.draw()
-#
-#
-# def hexagon(point=point_initial_hexagon, angle=angle_initial, length=length_initial):
-#     number_of_angles = 6
-#     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
-#     end_point = point
-#     for i in range(number_of_angles):
-#         v = sd.get_vector(start_point=end_point, angle=angle + angle_delta * i, length=length, width=3)
-#         end_point = v.end_point
-#         v.draw()
-#
-#
 # triangle()
 # square()
 # pentagon()
@@ -104,17 +64,9 @@ import simple_draw as sd
 # А теперь - сколько надо работы что бы внести изменения в код? Выгода на лицо :)
 # Поэтому среди программистов есть принцип D.R.Y. https://clck.ru/GEsA9
 # Будьте ленивыми, не используйте копи-пасту!
-point_initial_triangle = sd.get_point(100, 300)
-point_initial_square = sd.get_point(300, 150)
-point_initial_pentagon = sd.get_point(500, 300)
-point_initial_hexagon = sd.get_point(150, 400)
-length_initial = 100
-angle_initial = 60
-point_initial_n_angle = sd.get_point(300, 300)
 
 
-# TODO Нужно разместить функции над остальным кодом.
-def n_angle_figure(number_of_angles, point=point_initial_n_angle, angle=angle_initial, length=length_initial):
+def n_angle_figure(number_of_angles, point=sd.get_point(300, 300), angle=0, length=60):
     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
     end_point = point
     for i in range(number_of_angles-1):
@@ -124,14 +76,36 @@ def n_angle_figure(number_of_angles, point=point_initial_n_angle, angle=angle_in
     sd.line(start_point=point, end_point=end_point, width=3)
 
 
-# TODO По условиям второй части задания должно получиться:
-#   - одна общая функция со множеством параметров,
-#   - все функции отрисовки треугольника/квадрата/етс берут 3 параметра и внутри себя ВЫЗЫВАЮТ общую функцию.
-#  Нужно добавить функции рисования фигур.
-n_angle_figure(3, point=point_initial_triangle)
-n_angle_figure(4, point=point_initial_square)
-n_angle_figure(5, point=point_initial_pentagon)
-n_angle_figure(6, point=point_initial_hexagon)
+def triangle(point=sd.get_point(300, 300), angle=0, length=100):
+    number_of_angles = 3
+    n_angle_figure(number_of_angles=number_of_angles, point=point, angle=angle, length=length)
+
+
+def square(point=sd.get_point(300, 300), angle=0, length=100):
+    number_of_angles = 4
+    n_angle_figure(number_of_angles=number_of_angles, point=point, angle=angle, length=length)
+
+
+def pentagon(point=sd.get_point(300, 300), angle=0, length=100):
+    number_of_angles = 5
+    n_angle_figure(number_of_angles=number_of_angles, point=point, angle=angle, length=length)
+
+
+def hexagon(point=sd.get_point(300, 300), angle=0, length=100):
+    number_of_angles = 6
+    n_angle_figure(number_of_angles=number_of_angles, point=point, angle=angle, length=length)
+
+
+point_initial_triangle = sd.get_point(100, 200)
+point_initial_square = sd.get_point(300, 150)
+point_initial_pentagon = sd.get_point(450, 300)
+point_initial_hexagon = sd.get_point(150, 300)
+
+
+triangle(point=point_initial_triangle)
+square(point=point_initial_square)
+pentagon(point=point_initial_pentagon)
+hexagon(point=point_initial_hexagon)
 
 
 sd.pause()

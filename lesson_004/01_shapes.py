@@ -113,6 +113,7 @@ angle_initial = 60
 point_initial_n_angle = sd.get_point(300, 300)
 
 
+# TODO Нужно разместить функции над остальным кодом.
 def n_angle_figure(number_of_angles, point=point_initial_n_angle, angle=angle_initial, length=length_initial):
     angle_delta = 180 - (number_of_angles - 2) * 180 / number_of_angles
     end_point = point
@@ -123,6 +124,10 @@ def n_angle_figure(number_of_angles, point=point_initial_n_angle, angle=angle_in
     sd.line(start_point=point, end_point=end_point, width=3)
 
 
+# TODO По условиям второй части задания должно получиться:
+#   - одна общая функция со множеством параметров,
+#   - все функции отрисовки треугольника/квадрата/етс берут 3 параметра и внутри себя ВЫЗЫВАЮТ общую функцию.
+#  Нужно добавить функции рисования фигур.
 n_angle_figure(3, point=point_initial_triangle)
 n_angle_figure(4, point=point_initial_square)
 n_angle_figure(5, point=point_initial_pentagon)

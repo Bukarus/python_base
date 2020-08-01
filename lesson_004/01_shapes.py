@@ -109,3 +109,5 @@ hexagon(point=point_initial_hexagon)
 
 
 sd.pause()
+
+# Зачёт!

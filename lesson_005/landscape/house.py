@@ -1,7 +1,10 @@
 import simple_draw as sd
 
+import window_of_house
+
+sd.resolution = (1200, 600)
+
 def house_paint():
-    sd.resolution = (1200, 600)
     shift = 20
 
     left_bottom = sd.get_point(300 - shift, 0)
@@ -24,6 +27,8 @@ def house_paint():
             left_bottom = sd.get_point(x + 1, y + 1)
             right_top = sd.get_point(x + length_x - 1, y + length_y - 1)
             sd.rectangle(left_bottom=left_bottom, right_top=right_top, color=sd.background_color, width=0)
+
+    window_of_house.window_paint(sd.get_point(350, 50), sd.get_point(450, 150))
 
 
 house_paint()

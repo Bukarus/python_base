@@ -17,3 +17,5 @@ str2 = "В комнате " + r2.__name__ + " живут: " + r2.folks[0]
 
 print(str1)
 print(str2)
+
+# Зачёт!

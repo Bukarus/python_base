@@ -25,3 +25,5 @@ my_burger.cucumber_add()
 my_burger.tomato_add()
 my_burger.mayonnaise_add()
 my_burger.roll_add_above()
+
+# Зачёт!

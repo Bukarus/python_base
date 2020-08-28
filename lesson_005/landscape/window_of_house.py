@@ -2,6 +2,7 @@ import simple_draw as sd
 
 sd.resolution = (1200, 600)
 
+
 def window_paint(_left_bottom, _right_top):
     sd.rectangle(left_bottom=_left_bottom, right_top=_right_top, color=sd.COLOR_BLUE, width=0)
     sd.rectangle(left_bottom=_left_bottom, right_top=_right_top, color=sd.COLOR_YELLOW, width=1)

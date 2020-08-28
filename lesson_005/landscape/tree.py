@@ -7,6 +7,7 @@ start_length = 100.
 const_delta = 30
 root_point = sd.get_point(900, 30)
 
+
 def draw_random_branches(point=root_point, angle=start_angle, length=start_length, delta=const_delta):
     tree_color = (65, 25, 0)
     if length < 5:

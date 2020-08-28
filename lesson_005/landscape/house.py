@@ -6,6 +6,7 @@ import smile
 
 sd.resolution = (1200, 600)
 
+
 def house_paint():
     shift = 20
 

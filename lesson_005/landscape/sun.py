@@ -1,5 +1,6 @@
 import simple_draw as sd
 
+
 def sun_paint():
     center_point = sd.get_point(100, 500)
     sd.circle(center_position=center_point, radius=40, color=sd.COLOR_YELLOW, width=0)

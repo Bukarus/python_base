@@ -1,5 +1,6 @@
 import simple_draw
 
+
 def smile(x_coord=300, y_coord=300, color=simple_draw.COLOR_YELLOW):
     length_x = 50
     length_y = 50

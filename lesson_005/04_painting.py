@@ -20,6 +20,12 @@
 
 import simple_draw as sd
 
+# TODO В импортируемых модулях нужно испраить импорты так, чтобы
+#  задание запускалось без дополнительных настрок в pycharm.
+#  Нужно импорты вида import window_of_house поменять на
+#  import landscape.window_of_house
+#  Т. е. импорты второстепенных модулей должны импортировать другие модули относительно
+#  основного модуля программы.
 from landscape.house import house_paint
 from landscape.rainbow import rainbow_paint
 from landscape.snow import snowflow

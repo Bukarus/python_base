@@ -14,6 +14,10 @@ str_tabulate = ", "
 str_total = "На районе живут: "
 help_list = []
 
+# TODO Можно получить список жителей простым суммированием
+#  импортируемых списков.
+#  Это будет проще и бестрее, чем расширять список несколько раз.
+
 help_list.extend(ch1_r1.folks)
 help_list.extend(ch1_r2.folks)
 help_list.extend(ch2_r1.folks)

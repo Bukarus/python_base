@@ -28,5 +28,5 @@ def snowflow():
             break
 
 
-snowflow()
-sd.pause()
+# snowflow()
+# sd.pause()

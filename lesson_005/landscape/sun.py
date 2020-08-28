@@ -7,5 +7,5 @@ def sun_paint():
         vector_angle = 360 / 10
         sd.vector(start=center_point, angle=i*vector_angle, length=80)
 
-sun_paint()
-sd.pause()
+# sun_paint()
+# sd.pause()

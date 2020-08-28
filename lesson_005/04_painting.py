@@ -18,16 +18,24 @@
 # пример см. lesson_005/results/04_painting.jpg
 # Приправить своей фантазией по вкусу (коты? коровы? люди? трактор? что придумается)
 
-# TODO здесь ваш код
-import random
-
 import simple_draw as sd
+
+from landscape.house import house_paint
+from landscape.rainbow import rainbow_paint
+from landscape.snow import snowflow
+from landscape.sun import sun_paint
+from landscape.tree import draw_random_branches
 
 sd.resolution = (1200, 600)
 
+rainbow_paint()
+sun_paint()
+draw_random_branches()
+house_paint()
+snowflow()
 
 
-
+sd.pause()
 # Усложненное задание (делать по желанию)
 # Анимировать картину.
 # Пусть слева идет снегопад, радуга переливается цветами, смайлик моргает, солнце крутит лучами, етс.

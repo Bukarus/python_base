@@ -1,6 +1,6 @@
 import simple_draw as sd
 
-sd.resolution = (1200, 600)
+# sd.resolution = (1200, 600)
 start_point = sd.get_point(300, 30)
 start_angle = 90
 start_length = 100.

@@ -1,10 +1,10 @@
 import simple_draw as sd
 
-import window_of_house
+import landscape.window_of_house as wh
 
-import smile
+import landscape.smile as sm
 
-sd.resolution = (1200, 600)
+# sd.resolution = (1200, 600)
 
 
 def house_paint():
@@ -31,8 +31,8 @@ def house_paint():
             right_top = sd.get_point(x + length_x - 1, y + length_y - 1)
             sd.rectangle(left_bottom=left_bottom, right_top=right_top, color=sd.background_color, width=0)
 
-    window_of_house.window_paint(sd.get_point(350, 50), sd.get_point(450, 150))
-    smile.smile(350, 50)
+    wh.window_paint(sd.get_point(350, 50), sd.get_point(450, 150))
+    sm.smile(350, 50)
 
 
 # house_paint()

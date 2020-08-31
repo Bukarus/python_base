@@ -1,6 +1,6 @@
 import simple_draw as sd
 
-sd.resolution = (1200, 600)
+# sd.resolution = (1200, 600)
 
 
 def window_paint(_left_bottom, _right_top):

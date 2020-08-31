@@ -1,6 +1,6 @@
 import simple_draw as sd
 
-sd.resolution = (1200, 600)
+# sd.resolution = (1200, 600)
 
 
 def rainbow_paint():

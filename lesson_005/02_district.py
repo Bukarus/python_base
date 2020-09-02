@@ -35,3 +35,5 @@ help_list = (ch1_r1.folks + ch1_r2.folks + ch2_r1.folks + ch2_r2.folks + sh1_r1.
 str_total += str_tabulate.join(help_list)
 
 print(str_total)
+
+# Зачёт!

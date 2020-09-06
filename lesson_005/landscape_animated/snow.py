@@ -3,19 +3,18 @@ import simple_draw as sd
 # sd.resolution = (1200, 600)
 
 
-def snowflow():
-    number_of_snowflakes = 100
-
-    snowflakes = {}
-    for i in range(number_of_snowflakes):
-        snowflakes[i] = {}
-        snowflakes[i]['x'] = sd.random_number(0, 300)
-        snowflakes[i]['y'] = 700
-        snowflakes[i]['length'] = sd.random_number(5, 15)
-        snowflakes[i]['factor_a'] = sd.random_number(1, 8) / 10
-        snowflakes[i]['factor_b'] = sd.random_number(1, 8) / 10
-        snowflakes[i]['factor_c'] = sd.random_number(30, 60)
-        snowflakes[i]['speed'] = sd.random_number(5, 20)
+def snowflow(snowflakes):
+    # number_of_snowflakes = 100
+    # snowflakes = {}
+    # for i in range(number_of_snowflakes):
+    #     snowflakes[i] = {}
+    #     snowflakes[i]['x'] = sd.random_number(0, 300)
+    #     snowflakes[i]['y'] = 700
+    #     snowflakes[i]['length'] = sd.random_number(5, 15)
+    #     snowflakes[i]['factor_a'] = sd.random_number(1, 8) / 10
+    #     snowflakes[i]['factor_b'] = sd.random_number(1, 8) / 10
+    #     snowflakes[i]['factor_c'] = sd.random_number(30, 60)
+    #     snowflakes[i]['speed'] = sd.random_number(5, 20)
 
     # while True:
     # sd.start_drawing()

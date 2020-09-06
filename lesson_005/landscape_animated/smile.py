@@ -1,8 +1,8 @@
 import simple_draw
 
 
-def smile(x_coord=300, y_coord=300, color=simple_draw.COLOR_YELLOW):
-    width_of_eye = 0
+def smile(x_coord=300, y_coord=300, color=simple_draw.COLOR_YELLOW, width_of_eye=0):
+    # width_of_eye = 0
     # while True:
     # simple_draw.start_drawing()
     length_x = 50

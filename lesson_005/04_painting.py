@@ -21,22 +21,28 @@
 import simple_draw as sd
 
 
-from landscape.house import house_paint
-from landscape.rainbow import rainbow_paint
-from landscape.snow import snowflow
-from landscape.sun import sun_paint
-from landscape.tree import draw_random_branches
+from landscape_animated.house import house_paint
+from landscape_animated.snow import snowflow
+from landscape_animated.sun import sun_paint
+from landscape_animated.tree import draw_random_branches
+from landscape_animated.rainbow import rainbow_paint
 
 sd.resolution = (1200, 600)
 
-rainbow_paint()
-sun_paint()
 draw_random_branches()
-house_paint()
-snowflow()
+while True:
+    sd.start_drawing()
+    sun_paint()
+    house_paint()
+    snowflow()
+    rainbow_paint()
+    sd.finish_drawing()
+    sd.sleep(0.1)
+    if sd.user_want_exit():
+        break
 
 
-sd.pause()
+# sd.pause()
 # Усложненное задание (делать по желанию)
 # Анимировать картину.
 # Пусть слева идет снегопад, радуга переливается цветами, смайлик моргает, солнце крутит лучами, етс.

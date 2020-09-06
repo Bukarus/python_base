@@ -17,26 +17,26 @@ def snowflow():
         snowflakes[i]['factor_c'] = sd.random_number(30, 60)
         snowflakes[i]['speed'] = sd.random_number(5, 20)
 
-    while True:
-        sd.start_drawing()
-        for i, snowflake_item in snowflakes.items():
-            point = sd.get_point(snowflake_item['x'], snowflake_item['y'])
-            sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
-                         factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'],
-                         color=sd.background_color)
-            snowflake_item['y'] -= snowflake_item['speed']
-            snowflake_item['x'] += sd.random_number(-15, 15)
-            point = sd.get_point(snowflake_item['x'], snowflake_item['y'])
+    # while True:
+    # sd.start_drawing()
+    for i, snowflake_item in snowflakes.items():
+        point = sd.get_point(snowflake_item['x'], snowflake_item['y'])
+        sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
+                     factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'],
+                     color=sd.background_color)
+        snowflake_item['y'] -= snowflake_item['speed']
+        snowflake_item['x'] += sd.random_number(-15, 15)
+        point = sd.get_point(snowflake_item['x'], snowflake_item['y'])
+        sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
+                     factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'])
+        if snowflake_item['y'] < 10:
             sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
                          factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'])
-            if snowflake_item['y'] < 10:
-                sd.snowflake(center=point, length=snowflake_item['length'], factor_a=snowflake_item['factor_a'],
-                             factor_b=snowflake_item['factor_b'], factor_c=snowflake_item['factor_c'])
-                snowflake_item['y'] = 700
-        sd.finish_drawing()
-        sd.sleep(0.1)
-        if sd.user_want_exit():
-            break
+            snowflake_item['y'] = 700
+    # sd.finish_drawing()
+    # sd.sleep(0.1)
+    # if sd.user_want_exit():
+    #     break
 
 # snowflow()
 # sd.pause()

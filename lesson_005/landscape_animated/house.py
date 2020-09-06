@@ -1,8 +1,8 @@
 import simple_draw as sd
 
-import landscape.window_of_house as wh
+import landscape_animated.window_of_house as wh
 
-import landscape.smile as sm
+import landscape_animated.smile as sm
 
 # sd.resolution = (1200, 600)
 

@@ -44,4 +44,19 @@
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
-# TODO здесь ваш код...
+import mastermind_engine as me
+
+me.take_a_number()
+print(me.required_number)
+while me.bulls_and_cows['bulls'] != 4:
+    str_user_number = input("Введите 4-значное число:")
+    my_set = set(str_user_number)
+    if str_user_number[0] == '0':
+        print("Ошибка. Число должно начинаться не с 0")
+    elif len(str_user_number) != 4:
+        print("Ошибка. Число должно быть четырехзначным, попробуйте еще!")
+    elif len(my_set) < 4:
+        print("Ошибка. Используйте разные цифры!")
+    else:
+        me.verify_number(str_user_number=str_user_number)
+        print("Быков - {}, коров - {}".format(me.bulls_and_cows['bulls'], me.bulls_and_cows['cows']))

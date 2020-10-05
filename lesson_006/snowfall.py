@@ -3,12 +3,14 @@ import simple_draw as sd
 Number_of_snowflakes = 100
 snowflakes = {}
 
+list_of_bottoms = []
+
 
 def make_snowflakes(number):
     global snowflakes
     for i in range(number):
         snowflakes[i] = {}
-        snowflakes[i]['x'] = sd.random_number(i * 12, (i + 1) * 12 - 12)
+        snowflakes[i]['x'] = sd.random_number(i * 6, (i + 1) * 6)
         snowflakes[i]['y'] = 700
         snowflakes[i]['length'] = sd.random_number(5, 15)
         snowflakes[i]['factor_a'] = sd.random_number(1, 8) / 10
@@ -32,14 +34,18 @@ def move_snowflakes():
 
 
 def list_of_bottom_snowflakes():
-    list_of_bottoms = []
+    global list_of_bottoms
     for i, snowflake_item in snowflakes.items():
         if snowflake_item['y'] < 10:
             list_of_bottoms.append(i)
-    return list_of_bottoms
+    # return list_of_bottoms
 
 
-def remove_list_of_bottoms(list):
+def remove_list_of_bottoms():
+    list = []
     global snowflakes
-    for i in list.reverse():
-        snowflakes.pop(i)
+    global list_of_bottoms
+    list = list_of_bottoms
+    list.reverse()
+    for i, item in enumerate(list):
+        snowflakes.pop(item)

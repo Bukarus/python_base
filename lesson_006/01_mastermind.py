@@ -60,3 +60,5 @@ while me.bulls_and_cows['bulls'] != 4:
     else:
         me.verify_number(str_user_number=str_user_number)
         print("Быков - {}, коров - {}".format(me.bulls_and_cows['bulls'], me.bulls_and_cows['cows']))
+
+# TODO Исправьте замечание в модуле mastermind_engine.

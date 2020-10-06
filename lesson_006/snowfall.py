@@ -6,6 +6,10 @@ list_of_bottoms = list()
 
 
 def make_snowflakes(number):
+    # TODO При изменении содержимого объекта из глобальной области видимости
+    #  не нужно объявлять её глобальной. global нужно только в случае, когда вы
+    #  вы меняете саму переменную. Например для my_list.append() global не нужен.
+    #  А для my_list = [] без global не обойтись.
     global snowflakes
     for i in range(number):
         additional_list = list()
@@ -33,12 +37,15 @@ def move_snowflakes():
 
 
 def list_of_bottom_snowflakes():
+    # TODO В этой функции лучше не использовать глобальные переменные.
+    #  Список с индексами упавших снежинок нужно возвращать через return.
     global list_of_bottoms
     for i, snowflake_item in enumerate(snowflakes):
         if snowflake_item[1] < 10:
             list_of_bottoms.append(i)
 
 
+# TODO По условиям задания в эту функцию нужно явно передавать список с элементами для удаления
 def remove_list_of_bottoms():
     _list = []
     global snowflakes

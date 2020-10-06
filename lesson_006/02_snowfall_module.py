@@ -28,6 +28,9 @@ while True:
     #  нарисовать_снежинки_цветом(color)
     sn.paint_snowflake_with_color(color=sd.COLOR_WHITE)
     #  если есть номера_достигших_низа_экрана() то
+    # TODO Здесь лучше явно возвращать список упавших снежинок, сохраняя его
+    #  в переменную. Полученный список нужно передавать в функцию удаления
+    #  снежинок, а длину списка в функцию добавления новых.
     sn.list_of_bottom_snowflakes()
     if sn.list_of_bottoms:
         # print(sn.list_of_bottoms)

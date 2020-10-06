@@ -31,9 +31,9 @@ while True:
     sn.list_of_bottom_snowflakes()
     if sn.list_of_bottoms:
         # print(sn.list_of_bottoms)
-    #       удалить_снежинки(номера)
+        #       удалить_снежинки(номера)
         sn.remove_list_of_bottoms()
-    #       создать_снежинки(count)
+        #       создать_снежинки(count)
         count = len(sn.list_of_bottoms)
         sn.list_of_bottoms = []
         sn.make_snowflakes(count)

@@ -1,7 +1,6 @@
-from random import choice
+from random import sample
 
-
-digits = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+# digits = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 required_number = ""
 bulls_and_cows = {
     'bulls': 0,
@@ -10,28 +9,25 @@ bulls_and_cows = {
 
 
 def take_a_number():
-    # TODO Не самый оптимальный способ генерации числа.
-    #  В библиотеке random есть более подходящие функции.
-    #  Например shuffle или sample. С sample можно получить
-    #  сразу всю случайную последовательность одной командой.
-    #  Если хотите избегать 0 на первой позиции,
-    #  то генерировать последовательлность можно в цикле,
-    #  пока не получится последовательность начинающуася не с 0.
-    #  Или можно вместо последовательности в 4 символа сгенерировать 5
-    #  И если на первой позиции 0 сделать срез списка [1:], если не 0 [:4]
-    #  Функция shuffle позволяет перемешать элементы списка,
-    #  который можно сделать как list(range(10)). Останется только проверить
-    #  0 элемент и использовать срез.
     global required_number
-    one_digit = choice(list(digits))
-    digits.add(0)
-    digits.remove(one_digit)
-    str_number = str(one_digit)
-    for i in range(3):
-        one_digit = choice(list(digits))
-        digits.remove(one_digit)
-        str_number += str(one_digit)
-        required_number = str_number
+    # one_digit = choice(list(digits))
+    # digits.add(0)
+    # digits.remove(one_digit)
+    # str_number = str(one_digit)
+    # for i in range(3):
+    #     one_digit = choice(list(digits))
+    #     digits.remove(one_digit)
+    #     str_number += str(one_digit)
+    #     required_number = str_number
+    # str_number = ""
+    my_list = sample(range(0, 9), k=4)
+    for i, elem in enumerate(my_list):
+        my_list[i] = str(elem)
+    required_number = ''.join(my_list)
+    while required_number[0] == '0':
+        my_list = sample(range(0, 9), k=4)
+        for i, elem in enumerate(my_list):
+            my_list[i] = str(elem)
 
 
 def verify_number(str_user_number):

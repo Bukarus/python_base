@@ -10,7 +10,7 @@ def make_snowflakes(number):
     #  не нужно объявлять её глобальной. global нужно только в случае, когда вы
     #  вы меняете саму переменную. Например для my_list.append() global не нужен.
     #  А для my_list = [] без global не обойтись.
-    global snowflakes
+    # global snowflakes
     for i in range(number):
         additional_list = list()
         additional_list.append(sd.random_number(0, sd.resolution[0]))  # x

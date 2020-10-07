@@ -47,7 +47,7 @@
 import mastermind_engine as me
 
 me.take_a_number()
-# print(me.required_number)
+print(me.required_number)
 while me.bulls_and_cows['bulls'] != 4:
     str_user_number = input("Введите 4-значное число:")
     my_set = set(str_user_number)
@@ -60,5 +60,3 @@ while me.bulls_and_cows['bulls'] != 4:
     else:
         me.verify_number(str_user_number=str_user_number)
         print("Быков - {}, коров - {}".format(me.bulls_and_cows['bulls'], me.bulls_and_cows['cows']))
-
-# TODO Исправьте замечание в модуле mastermind_engine.

@@ -42,3 +42,5 @@ while True:
         break
 
 sd.pause()
+
+# TODO Нужно исправить замечание в модуле snowfall.

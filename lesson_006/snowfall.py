@@ -40,8 +40,6 @@ def list_of_bottom_snowflakes():
 
 
 def remove_list_of_bottoms(list_to_remove):
-    # TODO В этой функции не меняется переменная snowflakes и global не нужен.
-    global snowflakes
     list_to_remove.reverse()
     for i, item in enumerate(list_to_remove):
         snowflakes.pop(item)

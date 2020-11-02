@@ -19,47 +19,41 @@
 #   print(Water(), '+', Air(), '=', Water() + Air())
 #   print(Fire(), '+', Air(), '=', Fire() + Air())
 
-# TODO здесь ваш код
+
 class Air:
     def __init__(self):
         self.name = "Воздух"
 
     def __add__(self, other):
-        if other == "Вода":
-            my_storm = Storm()
-            return my_storm
+        if other.name == "Вода":
+            return Storm()
         elif other.name == "Огонь":
-            my_thunder = Thunder()
-            return my_thunder
+            return Thunder()
         elif other.name == "Земля":
-            my_dust = Dust()
-            return my_dust
+            return Dust()
         else:
             return None
 
     def __str__(self):
-        print(self.name)
+        return self.name
 
 
 class Water:
     def __init__(self):
-        self.name = "Вода"
+        self.name = 'Вода'
 
     def __add__(self, other):
         if other.name == "Воздух":
-            my_storm = Storm()
-            return my_storm
+            return Storm()
         elif other.name == "Огонь":
-            my_steam = Steam()
-            return my_steam
+            return Steam()
         elif other.name == "Земля":
-            my_dirt = Dirt()
-            return my_dirt
+            return Dirt()
         else:
             return None
 
     def __str__(self):
-        print(self.name)
+        return self.name
 
 
 class Fire:
@@ -68,19 +62,17 @@ class Fire:
 
     def __add__(self, other):
         if other.name == "Воздух":
-            my_thunder = Thunder()
-            return my_thunder
+            return Thunder()
         elif other.name == "Вода":
-            my_steam = Steam()
-            return my_steam
+            return Steam()
         elif other.name == "Земля":
-            my_lava = Lava()
-            return my_lava
+            return Lava()
         else:
             return None
 
     def __str__(self):
-        print(self.name)
+        return self.name
+
 
 class Earth:
     def __init__(self):
@@ -88,19 +80,16 @@ class Earth:
 
     def __add__(self, other):
         if other.name == "Воздух":
-            my_dust = Dust()
-            return my_dust
+            return Dust()
         elif other.name == "Вода":
-            my_dirt = Dirt()
-            return my_dirt
+            return Dirt()
         elif other.name == "Огонь":
-            my_lava = Lava()
-            return my_lava
+            return Lava()
         else:
             return None
 
     def __str__(self):
-        print(self.name)
+        return self.name
 
 
 class Lava:
@@ -108,47 +97,51 @@ class Lava:
         self.name = "Лава"
 
     def __str__(self):
-        print(self.name)
+        return self.name
+
 
 class Dust:
     def __init__(self):
         self.name = "Пыль"
 
     def __str__(self):
-        print(self.name)
+        return self.name
+
 
 class Dirt:
     def __init__(self):
         self.name = "Грязь"
 
     def __str__(self):
-        print(self.name)
+        return self.name
+
 
 class Steam:
     def __init__(self):
         self.name = "Пар"
 
     def __str__(self):
-        print(self.name)
+        return self.name
+
 
 class Storm:
     def __init__(self):
         self.name = "Шторм"
 
     def __str__(self):
-        print(self.name)
+        return self.name
+
 
 class Thunder:
     def __init__(self):
         self.name = "Молния"
 
     def __str__(self):
-        print(self.name)
+        return self.name
 
-Water
-print(Water() + Air())
-# print(Fire(), '+', Air(), '=', Fire() + Air())
 
+print(Water(), '+', Air(), '=', Water() + Air())
+print(Fire(), '+', Air(), '=', Fire() + Air())
 # Усложненное задание (делать по желанию)
 # Добавить еще элемент в игру.
 # Придумать что будет при сложении существующих элементов с новым.

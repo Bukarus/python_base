@@ -25,6 +25,11 @@ class Air:
         self.name = "Воздух"
 
     def __add__(self, other):
+        # TODO Используйте функцию isinstance, которая позволяет
+        #  определить является ли объект экземпляром определённого класса.
+        #  list1 = [1, 2, 3]
+        #  isinstance(list1, list) вернёт True
+        #  isinstance(list1, str) вернёт False
         if other.name == "Вода":
             return Storm()
         elif other.name == "Огонь":

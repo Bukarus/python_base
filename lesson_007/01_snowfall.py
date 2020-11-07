@@ -10,6 +10,7 @@ import simple_draw as sd
 
 
 class Snowflake:
+    # TODO pass здесь не нужен.
     pass
 
     def __init__(self):
@@ -108,3 +109,5 @@ while True:
         break
 
 sd.pause()
+
+# Зачёт!

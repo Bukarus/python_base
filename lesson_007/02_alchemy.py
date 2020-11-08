@@ -25,17 +25,12 @@ class Air:
         self.name = "Воздух"
 
     def __add__(self, other):
-        # TODO Используйте функцию isinstance, которая позволяет
-        #  определить является ли объект экземпляром определённого класса.
-        #  list1 = [1, 2, 3]
-        #  isinstance(list1, list) вернёт True
-        #  isinstance(list1, str) вернёт False
-        if other.name == "Вода":
+        if isinstance(other, Water):
             return Storm()
-        elif other.name == "Огонь":
-            return Thunder()
-        elif other.name == "Земля":
-            return Dust()
+        elif isinstance(other, Fire):
+            return Thunder
+        elif isinstance(other, Earth):
+            return Dust
         else:
             return None
 
@@ -48,11 +43,11 @@ class Water:
         self.name = 'Вода'
 
     def __add__(self, other):
-        if other.name == "Воздух":
+        if isinstance(other, Air):
             return Storm()
-        elif other.name == "Огонь":
+        elif isinstance(other, Fire):
             return Steam()
-        elif other.name == "Земля":
+        elif isinstance(other, Earth):
             return Dirt()
         else:
             return None
@@ -66,11 +61,11 @@ class Fire:
         self.name = "Огонь"
 
     def __add__(self, other):
-        if other.name == "Воздух":
+        if isinstance(other, Air):
             return Thunder()
-        elif other.name == "Вода":
+        elif isinstance(other, Water):
             return Steam()
-        elif other.name == "Земля":
+        elif isinstance(other, Earth):
             return Lava()
         else:
             return None
@@ -84,11 +79,11 @@ class Earth:
         self.name = "Земля"
 
     def __add__(self, other):
-        if other.name == "Воздух":
+        if isinstance(other, Air):
             return Dust()
-        elif other.name == "Вода":
+        elif isinstance(other, Water):
             return Dirt()
-        elif other.name == "Огонь":
+        elif isinstance(other, Fire):
             return Lava()
         else:
             return None

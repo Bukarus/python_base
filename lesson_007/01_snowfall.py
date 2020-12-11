@@ -10,8 +10,6 @@ import simple_draw as sd
 
 
 class Snowflake:
-    # TODO pass здесь не нужен.
-    pass
 
     def __init__(self):
         self.x = sd.random_number(0, sd.resolution[0])

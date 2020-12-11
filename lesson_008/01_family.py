@@ -3,6 +3,7 @@
 from termcolor import cprint
 from random import randint
 
+
 ######################################################## Часть первая
 #
 # Создать модель жизни небольшой семьи.
@@ -45,57 +46,105 @@ from random import randint
 class House:
 
     def __init__(self):
-        pass
+        self.quantity_of_money = 100
+        self.amount_of_food = 50
+        self.amount_of_dirt = 0
+
+    def __str__(self):
+        # super(House, self).__str__()
+        return "Денег в тумбочке - {}, еды в холодильнике - {}, грязи - {}".format(self.quantity_of_money,
+                                                                                   self.amount_of_food,
+                                                                                   self.amount_of_dirt)
 
 
-class Husband:
+class Human:
 
-    def __init__(self):
-        pass
+    def __init__(self, name, house=None):
+        self.name = name
+        self.fulness = 30
+        self.happiness = 100
+        self.house = house
+
+    def __str__(self):
+        return 'Имя - {}, сытость - {}, счастье - {}'.format(self.name, self.fulness, self.happiness)
+
+    def act(self):
+        self.fulness -= 10
+        self.house.amount_of_dirt += 5
+
+        if self.fulness <= 10:
+            self.eat()
+        elif self.fulness == 0:
+            cprint('{} умер'.format(self.name), color=orange)
+
+        if self.house.amount_of_dirt >= 90:
+            self.happiness -= 10
+
+    def eat(self):
+        self.fulness += 30
+        self.house.amount_of_food -= 30
+
+
+class Husband(Human):
+
+    def __init__(self, name, house=None):
+        super().__init__(name, house)
 
     def __str__(self):
         return super().__str__()
 
     def act(self):
-        pass
+        super().act()
 
     def eat(self):
-        pass
+        super().eat()
 
     def work(self):
-        pass
+        self.fulness -= 10
+        self.house.quantity_of_money += 150
 
     def gaming(self):
-        pass
+        self.fulness -= 10
+        self.happiness += 20
 
 
-class Wife:
+class Wife(Human):
 
-    def __init__(self):
-        pass
+    def __init__(self, name, house=None):
+        super().__init__(name, house)
 
     def __str__(self):
         return super().__str__()
 
     def act(self):
-        pass
+        super().act()
+        # self.fulness -= 10
 
     def eat(self):
-        pass
+        self.fulness += 15
+        self.house.amount_of_food -= 15
 
     def shopping(self):
-        pass
+        self.fulness -= 10
+        self.house.amount_of_food += 10
+        self.house.quantity_of_money -= 10
 
     def buy_fur_coat(self):
-        pass
+        self.fulness -= 10
+        self.house.quantity_of_money -= 350
+        self.happiness += 60
 
     def clean_house(self):
-        pass
+        self.fulness -= 10
+        if self.house.amount_of_dirt >= 100:
+            self.house.amount_of_dirt -= 100
+        else:
+            self.house.amount_of_dirt = 0
 
 
 home = House()
-serge = Husband(name='Сережа')
-masha = Wife(name='Маша')
+serge = Husband(name='Сережа', house=home)
+masha = Wife(name='Маша', house=home)
 
 for day in range(365):
     cprint('================== День {} =================='.format(day), color='red')
@@ -104,6 +153,8 @@ for day in range(365):
     cprint(serge, color='cyan')
     cprint(masha, color='cyan')
     cprint(home, color='cyan')
+
+print(home)
 
 # TODO после реализации первой части - отдать на проверку учителю
 
@@ -132,99 +183,98 @@ for day in range(365):
 # Если кот дерет обои, то грязи становится больше на 5 пунктов
 
 
-class Cat:
-
-    def __init__(self):
-        pass
-
-    def act(self):
-        pass
-
-    def eat(self):
-        pass
-
-    def sleep(self):
-        pass
-
-    def soil(self):
-        pass
-
-
-######################################################## Часть вторая бис
+# class Cat:
 #
-# После реализации первой части надо в ветке мастер продолжить работу над семьей - добавить ребенка
+#     def __init__(self):
+#         pass
 #
-# Ребенок может:
-#   есть,
-#   спать,
+#     def act(self):
+#         pass
 #
-# отличия от взрослых - кушает максимум 10 единиц еды,
-# степень счастья  - не меняется, всегда ==100 ;)
-
-class Child:
-
-    def __init__(self):
-        pass
-
-    def __str__(self):
-        return super().__str__()
-
-    def act(self):
-        pass
-
-    def eat(self):
-        pass
-
-    def sleep(self):
-        pass
-
-
-# TODO после реализации второй части - отдать на проверку учителем две ветки
-
-
-######################################################## Часть третья
+#     def eat(self):
+#         pass
 #
-# после подтверждения учителем второй части (обоих веток)
-# влить в мастер все коммиты из ветки develop и разрешить все конфликты
-# отправить на проверку учителем.
-
-
-home = House()
-serge = Husband(name='Сережа')
-masha = Wife(name='Маша')
-kolya = Child(name='Коля')
-murzik = Cat(name='Мурзик')
-
-for day in range(365):
-    cprint('================== День {} =================='.format(day), color='red')
-    serge.act()
-    masha.act()
-    kolya.act()
-    murzik.act()
-    cprint(serge, color='cyan')
-    cprint(masha, color='cyan')
-    cprint(kolya, color='cyan')
-    cprint(murzik, color='cyan')
-
-
-# Усложненное задание (делать по желанию)
+#     def sleep(self):
+#         pass
 #
-# Сделать из семьи любителей котов - пусть котов будет 3, или даже 5-10.
-# Коты должны выжить вместе с семьей!
+#     def soil(self):
+#         pass
 #
-# Определить максимальное число котов, которое может прокормить эта семья при значениях зарплаты от 50 до 400.
-# Для сглаживание случайностей моделирование за год делать 3 раза, если 2 из 3х выжили - считаем что выжили.
 #
-# Дополнительно вносить некий хаос в жизнь семьи
-# - N раз в год вдруг пропадает половина еды из холодильника (коты?)
-# - K раз в год пропадает половина денег из тумбочки (муж? жена? коты?!?!)
-# Промоделировать - как часто могут случаться фейлы что бы это не повлияло на жизнь героев?
-#   (N от 1 до 5, K от 1 до 5 - нужно вычислит максимумы N и K при котором семья гарантированно выживает)
+# ######################################################## Часть вторая бис
+# #
+# # После реализации первой части надо в ветке мастер продолжить работу над семьей - добавить ребенка
+# #
+# # Ребенок может:
+# #   есть,
+# #   спать,
+# #
+# # отличия от взрослых - кушает максимум 10 единиц еды,
+# # степень счастья  - не меняется, всегда ==100 ;)
 #
-# в итоге должен получится приблизительно такой код экспериментов
-# for food_incidents in range(6):
-#   for money_incidents in range(6):
-#       life = Simulation(money_incidents, food_incidents)
-#       for salary in range(50, 401, 50):
-#           max_cats = life.experiment(salary)
-#           print(f'При зарплате {salary} максимально можно прокормить {max_cats} котов')
+# class Child:
+#
+#     def __init__(self):
+#         pass
+#
+#     def __str__(self):
+#         return super().__str__()
+#
+#     def act(self):
+#         pass
+#
+#     def eat(self):
+#         pass
+#
+#     def sleep(self):
+#         pass
+#
+#
+# # TODO после реализации второй части - отдать на проверку учителем две ветки
+#
+#
+# ######################################################## Часть третья
+# #
+# # после подтверждения учителем второй части (обоих веток)
+# # влить в мастер все коммиты из ветки develop и разрешить все конфликты
+# # отправить на проверку учителем.
+#
+#
+# home = House()
+# serge = Husband(name='Сережа')
+# masha = Wife(name='Маша')
+# kolya = Child(name='Коля')
+# murzik = Cat(name='Мурзик')
+#
+# for day in range(365):
+#     cprint('================== День {} =================='.format(day), color='red')
+#     serge.act()
+#     masha.act()
+#     kolya.act()
+#     murzik.act()
+#     cprint(serge, color='cyan')
+#     cprint(masha, color='cyan')
+#     cprint(kolya, color='cyan')
+#     cprint(murzik, color='cyan')
+#
+# # Усложненное задание (делать по желанию)
+# #
+# # Сделать из семьи любителей котов - пусть котов будет 3, или даже 5-10.
+# # Коты должны выжить вместе с семьей!
+# #
+# # Определить максимальное число котов, которое может прокормить эта семья при значениях зарплаты от 50 до 400.
+# # Для сглаживание случайностей моделирование за год делать 3 раза, если 2 из 3х выжили - считаем что выжили.
+# #
+# # Дополнительно вносить некий хаос в жизнь семьи
+# # - N раз в год вдруг пропадает половина еды из холодильника (коты?)
+# # - K раз в год пропадает половина денег из тумбочки (муж? жена? коты?!?!)
+# # Промоделировать - как часто могут случаться фейлы что бы это не повлияло на жизнь героев?
+# #   (N от 1 до 5, K от 1 до 5 - нужно вычислит максимумы N и K при котором семья гарантированно выживает)
+# #
+# # в итоге должен получится приблизительно такой код экспериментов
+# # for food_incidents in range(6):
+# #   for money_incidents in range(6):
+# #       life = Simulation(money_incidents, food_incidents)
+# #       for salary in range(50, 401, 50):
+# #           max_cats = life.experiment(salary)
+# #           print(f'При зарплате {salary} максимально можно прокормить {max_cats} котов')

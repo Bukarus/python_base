@@ -52,9 +52,11 @@ class House:
 
     def __str__(self):
         # super(House, self).__str__()
-        return "Денег в тумбочке - {}, еды в холодильнике - {}, грязи - {}".format(self.quantity_of_money,
-                                                                                   self.amount_of_food,
-                                                                                   self.amount_of_dirt)
+        #  Не нужно оставлять код с таким большим отступом. Переносите
+        #  аргументы на новую строку. Так код будет более читаемым.
+        return "Денег в тумбочке - {}, еды в холодильнике - {}, грязи - {}".format(
+            self.quantity_of_money, self.amount_of_food, self.amount_of_dirt
+        )
 
 
 class Human:
@@ -95,6 +97,8 @@ class Husband(Human):
         super().__init__(name, house)
         self.money_earned = 0
 
+    # TODO Вы не меняете поведение родительского метода,
+    #  не нужно его переопределять
     def __str__(self):
         return super().__str__()
 
@@ -126,6 +130,8 @@ class Wife(Human):
         super().__init__(name, house)
         self.purchased_fur_coats = 0
 
+    # TODO Вы не меняете поведение родительского метода,
+    #  не нужно его переопределять
     def __str__(self):
         return super().__str__()
 
@@ -163,6 +169,8 @@ class Wife(Human):
         else:
             self.house.amount_of_dirt = 0
 
+# TODO После исправления замечаний переходите ко второй части задания.
+
 
 home = House()
 serge = Husband(name='Сережа', house=home)
@@ -177,5 +185,6 @@ for day in range(365):
     cprint(home, color='cyan')
 
 print(home)
-print('За год заработано - {}, еды съедено - {}, шуб куплено - {}'.format(serge.money_earned, serge.food_eaten,
-                                                                          masha.purchased_fur_coats))
+print('За год заработано - {}, еды съедено - {}, шуб куплено - {}'.format(
+    serge.money_earned, serge.food_eaten, masha.purchased_fur_coats
+))

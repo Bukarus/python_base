@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from termcolor import cprint
+
+
 # from random import randint
 
 
@@ -97,11 +99,6 @@ class Husband(Human):
         super().__init__(name, house)
         self.money_earned = 0
 
-    # TODO Вы не меняете поведение родительского метода,
-    #  не нужно его переопределять
-    def __str__(self):
-        return super().__str__()
-
     def act(self):
         if super().act():
             if self.happiness <= 10:
@@ -130,11 +127,6 @@ class Wife(Human):
         super().__init__(name, house)
         self.purchased_fur_coats = 0
 
-    # TODO Вы не меняете поведение родительского метода,
-    #  не нужно его переопределять
-    def __str__(self):
-        return super().__str__()
-
     def act(self):
         self.house.amount_of_dirt += 5
         if super().act():
@@ -144,12 +136,6 @@ class Wife(Human):
                 self.shopping()
             elif self.house.amount_of_dirt >= 90:
                 self.clean_house()
-            # else:
-            #     self.shopping()
-            # self.fulness -= 10
-
-    # def eat(self):
-    #     super(Wife, self).eat()
 
     def shopping(self):
         self.fullness -= 10
@@ -168,8 +154,6 @@ class Wife(Human):
             self.house.amount_of_dirt -= 100
         else:
             self.house.amount_of_dirt = 0
-
-# TODO После исправления замечаний переходите ко второй части задания.
 
 
 home = House()

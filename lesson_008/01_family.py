@@ -51,6 +51,7 @@ class House:
         self.quantity_of_money = 100
         self.amount_of_food = 50
         self.amount_of_dirt = 0
+        self.cat_food = 30
 
     def __str__(self):
         # super(House, self).__str__()
@@ -92,6 +93,10 @@ class Human:
         self.house.amount_of_food -= 30
         self.food_eaten += 30
 
+    def pet_the_cat(self, cat):
+        self.happiness += 5
+
+
 
 class Husband(Human):
 
@@ -107,9 +112,6 @@ class Husband(Human):
                 self.work()
             else:
                 self.work()
-
-    # def eat(self):
-    #     super().eat()
 
     def work(self):
         self.fullness -= 10
@@ -155,6 +157,25 @@ class Wife(Human):
         else:
             self.house.amount_of_dirt = 0
 
+class Cat:
+
+    def __init__(self, name):
+        self.name = name
+        self.fullness = 30
+
+    def act(self):
+        pass
+
+    def eat(self):
+        pass
+
+    def sleep(self):
+        pass
+
+    def soil(self):
+        pass
+
+
 
 home = House()
 serge = Husband(name='Сережа', house=home)
@@ -199,21 +220,3 @@ print('За год заработано - {}, еды съедено - {}, шуб
 # Если кот дерет обои, то грязи становится больше на 5 пунктов
 
 
-# class Cat:
-#
-#     def __init__(self):
-#         pass
-#
-#     def act(self):
-#         pass
-#
-#     def eat(self):
-#         pass
-#
-#     def sleep(self):
-#         pass
-#
-#     def soil(self):
-#         pass
-#
-#

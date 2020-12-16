@@ -82,6 +82,9 @@ class Human:
             cprint('{} умер'.format(self.name), color='magenta')
         elif self.happiness < 10:
             cprint('{} умер'.format(self.name), color='magenta')
+        elif self.happiness <= 15:
+            self.pet_the_cat()
+            return False
 
         if self.house.amount_of_dirt >= 90:
             self.happiness -= 10
@@ -143,6 +146,9 @@ class Wife(Human):
         self.fullness -= 10
         self.house.amount_of_food += 60
         self.house.quantity_of_money -= 60
+        if self.house.cat_food <= 10:
+            self.house.cat_food += 20
+            self.house.quantity_of_money -= 20
 
     def buy_fur_coat(self):
         self.fullness -= 10
@@ -159,21 +165,24 @@ class Wife(Human):
 
 class Cat:
 
-    def __init__(self, name):
+    def __init__(self, name, house=None):
         self.name = name
         self.fullness = 30
+        self.house = house
 
     def act(self):
         pass
 
     def eat(self):
-        pass
+        self.house.cat_food -= 10
+        self.fullness += 20
 
     def sleep(self):
-        pass
+        self.fullness -= 10
 
     def soil(self):
-        pass
+        self.fullness -= 10
+        self.house.amount_of_dirt += 5
 
 
 

@@ -227,6 +227,7 @@ class Cat:
         return 'кот - {}, сытость - {}'.format(self.name, self.fullness)
 
 
+# TODO Исправьте оформление кода, после этого ветку можно будет слить с основной.
 home = House()
 serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)

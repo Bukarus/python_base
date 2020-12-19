@@ -44,6 +44,18 @@ from termcolor import cprint
 #
 # Подвести итоги жизни за год: сколько было заработано денег, сколько сьедено еды, сколько куплено шуб.
 
+# ######################################################## Часть вторая бис
+# #
+# # После реализации первой части надо в ветке мастер продолжить работу над семьей - добавить ребенка
+# #
+# # Ребенок может:
+# #   есть,
+# #   спать,
+# #
+# # отличия от взрослых - кушает максимум 10 единиц еды,
+# # степень счастья  - не меняется, всегда ==100 ;)
+#
+
 
 class House:
 
@@ -156,16 +168,45 @@ class Wife(Human):
             self.house.amount_of_dirt = 0
 
 
+class Child(Human):
+
+    # def __init__(self, name, house=None):
+    #     super(Child, self).__init__(name=name, house=house)
+
+    # def __str__(self):
+    #     return super().__str__()
+
+    def act(self):
+        if self.fullness <= 10:
+            self.eat()
+        else:
+            self.sleep()
+
+    def eat(self):
+        self.fullness += 10
+        self.house.amount_of_food -= 10
+        self.food_eaten += 10
+
+    def sleep(self):
+        self.fullness -= 10
+
+
+
+
+
 home = House()
 serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
+kolya = Child(name='Коля', house=home)
 
 for day in range(365):
     cprint('================== День {} =================='.format(day), color='red')
     serge.act()
     masha.act()
+    kolya.act()
     cprint(serge, color='cyan')
     cprint(masha, color='cyan')
+    cprint(kolya, color='cyan')
     cprint(home, color='cyan')
 
 print(home)
@@ -173,46 +214,3 @@ print('За год заработано - {}, еды съедено - {}, шуб
     serge.money_earned, serge.food_eaten, masha.purchased_fur_coats
 ))
 
-######################################################## Часть вторая
-#
-# После подтверждения учителем первой части надо
-# отщепить ветку develop и в ней начать добавлять котов в модель семьи
-#
-# Кот может:
-#   есть,
-#   спать,
-#   драть обои
-#
-# Люди могут:
-#   гладить кота (растет степень счастья на 5 пунктов)
-#
-# В доме добавляется:
-#   еда для кота (в начале - 30)
-#
-# У кота есть имя и степень сытости (в начале - 30)
-# Любое действие кота, кроме "есть", приводит к уменьшению степени сытости на 10 пунктов
-# Еда для кота покупается за деньги: за 10 денег 10 еды.
-# Кушает кот максимум по 10 единиц еды, степень сытости растет на 2 пункта за 1 пункт еды.
-# Степень сытости не должна падать ниже 0, иначе кот умрет от голода.
-#
-# Если кот дерет обои, то грязи становится больше на 5 пунктов
-
-
-# class Cat:
-#
-#     def __init__(self):
-#         pass
-#
-#     def act(self):
-#         pass
-#
-#     def eat(self):
-#         pass
-#
-#     def sleep(self):
-#         pass
-#
-#     def soil(self):
-#         pass
-#
-#

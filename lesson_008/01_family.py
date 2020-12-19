@@ -177,7 +177,6 @@ class Wife(Human):
             self.house.quantity_of_money -= 40
             self.total_amount_of_cat_food += 40
 
-
     def buy_fur_coat(self):
         self.fullness -= 10
         self.house.quantity_of_money -= 350
@@ -227,7 +226,6 @@ class Cat:
         return 'кот - {}, сытость - {}'.format(self.name, self.fullness)
 
 
-# TODO Исправьте оформление кода, после этого ветку можно будет слить с основной.
 home = House()
 serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
@@ -250,5 +248,3 @@ print(home)
 print('За год заработано - {}, еды съедено - {}, шуб куплено - {}, вискаса закуплено - {} единиц'.format(
     serge.money_earned, serge.food_eaten, masha.purchased_fur_coats, masha.total_amount_of_cat_food
 ))
-
-

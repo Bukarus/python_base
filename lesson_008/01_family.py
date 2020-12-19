@@ -191,9 +191,6 @@ class Child(Human):
         self.fullness -= 10
 
 
-
-
-
 home = House()
 serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
@@ -213,4 +210,3 @@ print(home)
 print('За год заработано - {}, еды съедено - {}, шуб куплено - {}'.format(
     serge.money_earned, serge.food_eaten, masha.purchased_fur_coats
 ))
-

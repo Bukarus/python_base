@@ -293,3 +293,5 @@ print(home)
 print('За год заработано - {}, еды съедено - {}, шуб куплено - {}, вискаса закуплено - {} единиц'.format(
     serge.money_earned, serge.food_eaten, masha.purchased_fur_coats, masha.total_amount_of_cat_food
 ))
+
+# Зачёт!
